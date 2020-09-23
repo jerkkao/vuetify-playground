@@ -33,6 +33,11 @@ const routes = [
     name: 'Time',
     component: () => import(/* webpackChunkName: "about" */ '../views/TimeIsMoney.vue'),
   },
+  {
+    path: '/search',
+    name: 'search',
+    component: () => import(/* webpackChunkName: "about" */ '../views/SearchHeader.vue'),
+  },
 ]
 
 const router = new VueRouter({
