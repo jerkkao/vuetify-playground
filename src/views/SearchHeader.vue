@@ -36,6 +36,7 @@
                   solo
                   :label="TEXT_PLACEHOLDER"
                   :hint="TEXT_HINT"
+                  persistent-hint
                 />
               </v-col>
               <v-col cols="auto">
