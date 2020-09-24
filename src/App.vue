@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <v-app-bar
-      color="deep-purple accent-4"
+      color="white"
       dense
+      app
+      flat
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-
       <v-toolbar-title>Vuetify Playground</v-toolbar-title>
     </v-app-bar>
     <navigation-drawer
@@ -13,8 +14,9 @@
       :routes="routes"
       @clicked="closeDrawer"
     />
-
-    <router-view />
+    <v-main>
+      <router-view />
+    </v-main>
   </div>
 </template>
 <script>
