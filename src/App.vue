@@ -1,16 +1,52 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">
-        Home
-      </router-link> |
-      <router-link to="/about">
-        About
-      </router-link>
-    </div>
+    <v-app-bar
+      color="deep-purple accent-4"
+      dense
+    >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+
+      <v-toolbar-title>Vuetify Playground</v-toolbar-title>
+    </v-app-bar>
+    <navigation-drawer
+      v-model="drawer"
+      :routes="routes"
+      @clicked="closeDrawer"
+    />
+
     <router-view />
   </div>
 </template>
+<script>
+  import NavigationDrawer from '@/components/NavigationDrawer.vue'
+
+  export default {
+    components: {
+      NavigationDrawer,
+    },
+    data () {
+      return {
+        drawer: false,
+        routes: [],
+      }
+    },
+    created () {
+      this.$router.options.routes.forEach(route => {
+        if (route.name !== 'Home' && route.name !== 'About') {
+          this.routes.push({
+            name: route.name,
+            path: route.path,
+          })
+        }
+      })
+    },
+    methods: {
+      closeDrawer () {
+        this.drawer = false
+      },
+    },
+  }
+</script>
 
 <style lang="scss">
 #app {

@@ -43,6 +43,11 @@ const routes = [
     name: 'Account',
     component: () => import(/* webpackChunkName: "about" */ '../views/AccountSettings.vue'),
   },
+  {
+    path: '/crowd',
+    name: 'Crowd',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CrowdfundingCard.vue'),
+  },
 ]
 
 const router = new VueRouter({
